@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                }
                else{
                 notFound.innerHTML = ""
+                ui.showModal(data)
                 
-                // ui.showModal(data)
                }
            })
            //display the ui
