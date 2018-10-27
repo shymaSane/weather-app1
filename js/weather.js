@@ -8,10 +8,9 @@ class Weather{
         //units=metric for celsius temp
         const fetchWeather = await fetch(`http://api.openweathermap.org/data/2.5/weather?APPID=${this._key}&q=${city},${country}&units=metric`)
 
-        const data = await fetchWeather.json()
-        console.log(data)
+        const weather_promise = await fetchWeather.json()
         return {
-            data
+            weather_promise
         }
     }
 }

@@ -14,10 +14,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
         e.preventDefault()
        let city = document.getElementById('city').value
        let country = document.getElementById('country').value
+       let notFound = document.getElementById('not-found')
        if(city !== "" && country !== ""){
            //change information
            //get the information from the api
-           let data = weather.getWeather(city, country)
+           weather.getWeather(city, country).then(data => {
+               if(data.weather_promise.message === "city not found"){
+                   notFound.innerHTML = "city not found"
+               }
+               else{
+                notFound.innerHTML = ""
+                
+                // ui.showModal(data)
+               }
+           })
            //display the ui
        }
        else{
