@@ -31,11 +31,35 @@
                                 <li class="list-group-item"> <!-- wind --></li> 
                             </ul>
                         </p>
-                        <button class="btn btn-primary">Change Location</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#change-location-modal">Change Location</button>
                     </div>
                     <div class="card-footer">weather.com</div>
                 </div>
             </dive>
+        </div>
+        <div class="modal" tabindex="-1" role="dialog" id="change-location-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary">Choose Location</h5>
+                      <button type="button" class="close" data-dismiss="modal"    aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group p-2">
+                            <input type="text" name="city" id="city" class="form-control" placeholder="City">
+                        </div>
+                        <div class="input-group p-2">
+                            <input type="text" name="country" id="country" class="form-control" placeholder="Country">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit"  class="btn btn-primary" id="change-location"> change </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!-- bootstrap css -->
