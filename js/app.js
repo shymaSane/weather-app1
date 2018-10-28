@@ -1,9 +1,21 @@
 //init local storage
 const storage = new StorageLoc;
+const initLocation = storage.getLocationStorage();
+
 //init weather class
-const weather = new Weather('Amman', 'Jordan');
+const weather = new Weather(initLocation.city, initLocation.country);
+
 //init ModalUi class
 const ui = new ModalUi();
+
+//fetch weather data and manipulate the dom
+function changeWeather() {
+    weather.getWeather().then(data => {
+        ui.showModal(data)
+    })
+}
+
+changeWeather()
 
 //start app.js when document ready
 document.addEventListener("DOMContentLoaded", function() { 
@@ -24,13 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
     })
 
-    //fetch weather data and manipulate the dom
-   function changeWeather() {
-       weather.getWeather().then(data => {
-           ui.showModal(data)
-       })
-   }
-
+    
    
  
    
