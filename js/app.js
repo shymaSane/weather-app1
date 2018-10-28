@@ -1,5 +1,5 @@
 //init local storage
-// const storage = new StorageLoc;
+const storage = new StorageLoc;
 //init weather class
 const weather = new Weather('Amman', 'Jordan');
 //init ModalUi class
