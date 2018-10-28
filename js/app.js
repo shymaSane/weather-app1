@@ -1,8 +1,10 @@
-
+//init local storage
+// const storage = new StorageLoc;
 //init weather class
 const weather = new Weather('Amman', 'Jordan');
 //init ModalUi class
-const ui = new ModalUi
+const ui = new ModalUi();
+
 //start app.js when document ready
 document.addEventListener("DOMContentLoaded", function() { 
     //add event to the change button in the modal
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
            ui.showModal(data)
        })
    }
+
    
  
    
