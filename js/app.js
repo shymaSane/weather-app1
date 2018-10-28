@@ -1,38 +1,18 @@
-//start appjs when dcument ready
+//start app.js when dcument ready
+const weather = new Weather('Amman', 'Jordan')
+const ui = new ModalUi
+document.addEventListener("DOMContentLoaded", function() { 
+   //init weather class with deafult location
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    //fetch button 
-   let button = document.getElementById('change-location')
-   //init weather class
-   const weather = new Weather
+//    document.getElementById('card-title').textContent = "amman"
+//    console.log(document.getElementById('card-title').innerHtml)
    //init ui
-   const ui = new ModalUi
+   function getWeather() {
+       weather.getWeather().then(data => {
+           ui.showModal(data)
+       })
+   }
    
-   //add eventlistenr to show location modals
-   button.addEventListener('click', (e) => {
-        //input values
-        e.preventDefault()
-       let city = document.getElementById('city').value
-       let country = document.getElementById('country').value
-       let notFound = document.getElementById('not-found')
-       if(city !== "" && country !== ""){
-           //change information
-           //get the information from the api
-           weather.getWeather(city, country).then(data => {
-               if(data.weather_promise.message === "city not found"){
-                   notFound.innerHTML = "city not found"
-               }
-               else{
-                notFound.innerHTML = ""
-                ui.showModal(data)
-                
-               }
-           })
-           //display the ui
-       }
-       else{
-           //keep current information
-       }
-       
-   })
+   getWeather()
+   
 });
